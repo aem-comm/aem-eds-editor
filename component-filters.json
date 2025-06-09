@@ -24,6 +24,7 @@
       "fragment",
       "product-teaser",
       "product-recommendations",
+      "product-info",
       "commerce-checkout"
     ]
   },
