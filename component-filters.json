@@ -91,7 +91,6 @@
       "cards",
       "columns",
       "fragment",
-      "product-info",
       "commerce-mini-cart"
     ]
   },
@@ -146,7 +145,6 @@
       "cards",
       "columns",
       "fragment",
-      "product-info",
       "commerce-checkout"
     ]
   },
