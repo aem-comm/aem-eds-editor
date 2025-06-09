@@ -40,6 +40,7 @@
       "columns",
       "fragment",
       "product-teaser",
+      "product-info",
       "product-recommendations"
     ]
   },
@@ -57,6 +58,7 @@
       "enrichment",
       "product-teaser",
       "product-recommendations",
+      "product-info",
       "product-list-page"
     ]
   },
@@ -74,6 +76,7 @@
       "enrichment",
       "product-details",
       "product-teaser",
+      "product-info",
       "product-recommendations"
     ]
   },
@@ -88,6 +91,7 @@
       "cards",
       "columns",
       "fragment",
+      "product-info",
       "commerce-mini-cart"
     ]
   },
@@ -104,6 +108,7 @@
       "fragment",
       "commerce-cart",
       "product-teaser",
+      "product-info",
       "product-recommendations"
     ]
   },
@@ -126,6 +131,7 @@
       "commerce-order-product-list",
       "commerce-order-returns",
       "product-teaser",
+      "product-info",
       "product-recommendations"
     ]
   },
@@ -140,6 +146,7 @@
       "cards",
       "columns",
       "fragment",
+      "product-info",
       "commerce-checkout"
     ]
   },
