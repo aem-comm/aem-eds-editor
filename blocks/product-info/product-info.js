@@ -1,10 +1,43 @@
 export default function decorate(block) {
-  // Create Button
-  const button = document.createElement('button');
-  button.textContent = 'Create Customer via API Mesh';
-  button.style.padding = '1em';
-  button.style.marginBottom = '1em';
-  block.appendChild(button);
+  const translations = {
+    en: {
+      firstname: 'First Name',
+      lastname: 'Last Name',
+      email: 'Email Address',
+      password: 'Password',
+      save: 'Save',
+      success: '✅ Customer Created:',
+      error: '❌ Error:',
+      networkError: '⚠️ Network Error:',
+    },
+    // Add more locales here if needed
+  };
+
+  function getCurrentLocale() {
+    return translations[document.documentElement.lang] ? document.documentElement.lang : 'en';
+  }
+
+  const t = translations[getCurrentLocale()];
+
+  // Create Form
+  const form = document.createElement('form');
+  form.id = 'productInfoForm';
+  form.innerHTML = `
+    <label>${t.firstname}
+      <input type="text" name="firstname" required />
+    </label>
+    <label>${t.lastname}
+      <input type="text" name="lastname" required />
+    </label>
+    <label>${t.email}
+      <input type="email" name="email" required />
+    </label>
+    <label>${t.password}
+      <input type="password" name="password" required />
+    </label>
+    <button type="submit">${t.save}</button>
+  `;
+  block.appendChild(form);
 
   // Create Output Display
   const resultDisplay = document.createElement('pre');
@@ -13,15 +46,18 @@ export default function decorate(block) {
   resultDisplay.style.whiteSpace = 'pre-wrap';
   block.appendChild(resultDisplay);
 
-  // Button click handler
-  button.addEventListener('click', async () => {
+  // Submit handler
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
     const endpoint = 'https://edge-sandbox-graph.adobe.io/api/0804747e-2944-4ef2-b5f7-e1b7a1d6bc32/graphql';
     const token = 'f75115a1f5c64e61a50e050543da9545';
 
-    const firstname = block.dataset.firstname || 'John';
-    const lastname = block.dataset.lastname || 'Doe';
-    const email = block.dataset.email || 'john.doe@example.com';
-    const password = block.dataset.password || 'MySecurePassword123';
+    const formData = new FormData(form);
+    const firstname = formData.get('firstname');
+    const lastname = formData.get('lastname');
+    const email = formData.get('email');
+    const password = formData.get('password');
 
     const query = `
       mutation {
@@ -56,12 +92,13 @@ export default function decorate(block) {
       const data = await response.json();
 
       if (data.errors) {
-        resultDisplay.textContent = `❌ Error:\n${JSON.stringify(data.errors, null, 2)}`;
+        resultDisplay.textContent = `${t.error}\n${JSON.stringify(data.errors, null, 2)}`;
       } else {
-        resultDisplay.textContent = `✅ Customer Created:\n${JSON.stringify(data.data, null, 2)}`;
+        resultDisplay.textContent = `${t.success}\n${JSON.stringify(data.data, null, 2)}`;
+        form.reset();
       }
     } catch (error) {
-      resultDisplay.textContent = `⚠️ Network Error: ${error.message}`;
+      resultDisplay.textContent = `${t.networkError} ${error.message}`;
     }
   });
 }
