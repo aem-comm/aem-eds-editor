@@ -1,63 +1,31 @@
 export default function decorate(block) {
-  const translations = {
-    en: {
-      firstname: 'First Name',
-      lastname: 'Last Name',
-      email: 'Email Address',
-      password: 'Password',
-      save: 'Save',
-      success: '✅ Customer Created:',
-      error: '❌ Error:',
-      networkError: '⚠️ Network Error:',
-    },
-    // Add more locales here if needed
-  };
-
-  function getCurrentLocale() {
-    return translations[document.documentElement.lang] ? document.documentElement.lang : 'en';
-  }
-
-  const t = translations[getCurrentLocale()];
-
-  // Create Form
-  const form = document.createElement('form');
-  form.id = 'productInfoForm';
-  form.innerHTML = `
-    <label>${t.firstname}
-      <input type="text" name="firstname" required />
-    </label>
-    <label>${t.lastname}
-      <input type="text" name="lastname" required />
-    </label>
-    <label>${t.email}
-      <input type="email" name="email" required />
-    </label>
-    <label>${t.password}
-      <input type="password" name="password" required />
-    </label>
-    <button type="submit">${t.save}</button>
+  block.innerHTML = `
+    <form class="product-info">
+      <label>First Name
+        <input type="text" name="firstname" required />
+      </label>
+      <label>Last Name
+        <input type="text" name="lastname" required />
+      </label>
+      <label>Email Address
+        <input type="email" name="email" required />
+      </label>
+      <label>Password
+        <input type="password" name="password" required />
+      </label>
+      <button type="submit">Create Customer</button>
+    </form>
   `;
-  block.appendChild(form);
 
-  // Create Output Display
-  const resultDisplay = document.createElement('pre');
-  resultDisplay.style.backgroundColor = '#f5f5f5';
-  resultDisplay.style.padding = '1em';
-  resultDisplay.style.whiteSpace = 'pre-wrap';
-  block.appendChild(resultDisplay);
+  const form = block.querySelector('form');
 
-  // Submit handler
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const endpoint = 'https://edge-sandbox-graph.adobe.io/api/0804747e-2944-4ef2-b5f7-e1b7a1d6bc32/graphql';
-    const token = 'f75115a1f5c64e61a50e050543da9545';
-
-    const formData = new FormData(form);
-    const firstname = formData.get('firstname');
-    const lastname = formData.get('lastname');
-    const email = formData.get('email');
-    const password = formData.get('password');
+    const firstname = form.firstname.value;
+    const lastname = form.lastname.value;
+    const email = form.email.value;
+    const password = form.password.value;
 
     const query = `
       mutation {
@@ -80,25 +48,27 @@ export default function decorate(block) {
     `;
 
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetch('https://edge-sandbox-graph.adobe.io/api/0804747e-2944-4ef2-b5f7-e1b7a1d6bc32/graphql', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer f75115a1f5c64e61a50e050543da9545`,
         },
         body: JSON.stringify({ query }),
       });
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (data.errors) {
-        resultDisplay.textContent = `${t.error}\n${JSON.stringify(data.errors, null, 2)}`;
-      } else {
-        resultDisplay.textContent = `${t.success}\n${JSON.stringify(data.data, null, 2)}`;
+      if (result?.data?.createCustomerV2?.customer) {
+        alert('Customer created successfully!');
         form.reset();
+      } else {
+        alert(' Failed to create customer. Check console for details.');
+        console.error(result);
       }
     } catch (error) {
-      resultDisplay.textContent = `${t.networkError} ${error.message}`;
+      console.error(' API call failed:', error);
+      alert(' Network error. Please try again.');
     }
   });
 }
