@@ -45,6 +45,34 @@
     ]
   },
   {
+    "id": "carousel",
+    "fields": [
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Carousel Heading"
+      },
+      {
+        "component": "reference",
+        "name": "slides",
+        "label": "Slides",
+        "multi": true
+      }
+    ]
+  },
+  {
+    "id": "search",
+    "fields": [
+      {
+        "component": "text",
+        "name": "placeholder",
+        "label": "Search Placeholder"
+      }
+    ]
+  },
+
+
+  {
     "id": "title",
     "fields": [
       {

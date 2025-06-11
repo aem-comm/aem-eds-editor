@@ -280,6 +280,34 @@
           }
         },
         {
+          "title": "Carousel",
+          "id": "carousel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "xcom/components/carousel",
+                "template": {
+                  "model": "carousel"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Search",
+          "id": "search",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "xcom/components/search",
+                "template": {
+                  "model": "search"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Enrichment",
           "id": "enrichment",
           "plugins": {
