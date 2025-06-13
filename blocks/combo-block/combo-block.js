@@ -1,4 +1,4 @@
-import { loadBlock } from '../../scripts/lib-franklin.js'; // ✅ fix for no-undef
+import { loadBlock } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   const {
