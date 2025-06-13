@@ -1,18 +1,19 @@
+import { loadBlock } from '../../scripts/lib-franklin.js'; // ✅ fix for no-undef
+
 export default async function decorate(block) {
   const {
     headline,
     subtext,
     bodyText,
     buttonLabel,
-    buttonLink
-  } = block.dataset;
+    buttonLink,
+  } = block.dataset; // ✅ trailing comma added
 
   block.innerHTML = `
     <div class="combo-block">
-
       <div class="hero-block">
         <h1>${headline || 'Default Hero Heading'}</h1>
-        ${subtext ? `<p>${subtext}</p>` : ''}
+        <p>${subtext || ''}</p>
       </div>
 
       <div class="text-block">
@@ -22,7 +23,6 @@ export default async function decorate(block) {
       <div class="button-block">
         <p><a class="button primary" href="${buttonLink || '#'}">${buttonLabel || 'Click Here'}</a></p>
       </div>
-
     </div>
   `;
 
