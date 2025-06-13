@@ -45,51 +45,34 @@
     ]
   },
   {
-    "combo-block": {
-      "title": "Combo Block",
-      "description": "Block composed of hero, text, and button core blocks",
-      "type": "object",
-      "properties": {
-        "headline": {
-          "type": "string",
-          "title": "Hero Headline",
-          "xwalk": {
-            "type": "text"
-          }
-        },
-        "subtext": {
-          "type": "string",
-          "title": "Hero Subtext",
-          "xwalk": {
-            "type": "text"
-          }
-        },
-        "bodyText": {
-          "type": "string",
-          "title": "Text Block Body",
-          "xwalk": {
-            "type": "text"
-          }
-        },
-        "buttonLabel": {
-          "type": "string",
-          "title": "Button Label",
-          "default": "Learn More",
-          "xwalk": {
-            "type": "text"
-          }
-        },
-        "buttonLink": {
-          "type": "string",
-          "title": "Button Link",
-          "default": "/",
-          "xwalk": {
-            "type": "text"
-          }
-        }
+    "id": "combo-block",
+    "fields": [
+      {
+        "component": "text",
+        "name": "headline",
+        "label": "Hero Heading"
       },
-      "required": ["headline", "bodyText", "buttonLabel", "buttonLink"]
-    }
+      {
+        "component": "text",
+        "name": "subtext",
+        "label": "Hero Subtext"
+      },
+      {
+        "component": "richtext",
+        "name": "bodyText",
+        "label": "Text Body"
+      },
+      {
+        "component": "text",
+        "name": "buttonLabel",
+        "label": "Button Label"
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonLink",
+        "label": "Button Link"
+      }
+    ]
   },
   {
     "id": "carousel",
