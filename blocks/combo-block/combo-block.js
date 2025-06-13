@@ -1,17 +1,26 @@
-import { loadBlock } from '../../scripts/aem.js';
-
 export default async function decorate(block) {
+  const {
+    headline,
+    subtext,
+    bodyText,
+    buttonLabel,
+    buttonLink
+  } = block.dataset;
+
   block.innerHTML = `
     <div class="combo-block">
 
-      <div class="hero-block"></div>
+      <div class="hero-block">
+        <h1>${headline || 'Default Hero Heading'}</h1>
+        ${subtext ? `<p>${subtext}</p>` : ''}
+      </div>
 
       <div class="text-block">
-        <p>This is a combined block that showcases multiple core blocks inside one.</p>
+        <p>${bodyText || 'Default text content goes here.'}</p>
       </div>
 
       <div class="button-block">
-        <p><a class="button primary" href="/next">Continue</a></p>
+        <p><a class="button primary" href="${buttonLink || '#'}">${buttonLabel || 'Click Here'}</a></p>
       </div>
 
     </div>
