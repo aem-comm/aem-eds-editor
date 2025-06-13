@@ -53,27 +53,39 @@
         "headline": {
           "type": "string",
           "title": "Hero Headline",
-          "description": "Main heading text displayed in the hero section"
+          "xwalk": {
+            "type": "text"
+          }
         },
         "subtext": {
           "type": "string",
           "title": "Hero Subtext",
-          "description": "Optional subtext under the hero heading"
+          "xwalk": {
+            "type": "text"
+          }
         },
         "bodyText": {
           "type": "string",
-          "title": "Body Text",
-          "description": "Main content in the text block"
+          "title": "Text Block Body",
+          "xwalk": {
+            "type": "text"
+          }
         },
         "buttonLabel": {
           "type": "string",
           "title": "Button Label",
-          "default": "Learn More"
+          "default": "Learn More",
+          "xwalk": {
+            "type": "text"
+          }
         },
         "buttonLink": {
           "type": "string",
           "title": "Button Link",
-          "default": "/"
+          "default": "/",
+          "xwalk": {
+            "type": "text"
+          }
         }
       },
       "required": ["headline", "bodyText", "buttonLabel", "buttonLink"]
