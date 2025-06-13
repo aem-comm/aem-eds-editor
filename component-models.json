@@ -48,29 +48,35 @@
     "id": "combo-block",
     "fields": [
       {
-        "component": "text",
-        "name": "headline",
-        "label": "Hero Heading"
-      },
-      {
-        "component": "text",
-        "name": "subtext",
-        "label": "Hero Subtext"
-      },
-      {
-        "component": "richtext",
-        "name": "bodyText",
-        "label": "Text Body"
-      },
-      {
-        "component": "text",
-        "name": "buttonLabel",
-        "label": "Button Label"
-      },
-      {
-        "component": "aem-content",
-        "name": "buttonLink",
-        "label": "Button Link"
+        "component": "collapsible",
+        "label": "Combo Block Settings",
+        "fields": [
+          {
+            "component": "text",
+            "name": "headline",
+            "label": "Hero Heading"
+          },
+          {
+            "component": "text",
+            "name": "subtext",
+            "label": "Hero Subtext"
+          },
+          {
+            "component": "richtext",
+            "name": "bodyText",
+            "label": "Text Body"
+          },
+          {
+            "component": "text",
+            "name": "buttonLabel",
+            "label": "Button Label"
+          },
+          {
+            "component": "aem-content",
+            "name": "buttonLink",
+            "label": "Button Link"
+          }
+        ]
       }
     ]
   },
