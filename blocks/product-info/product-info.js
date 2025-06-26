@@ -60,7 +60,7 @@ export default function decorate(block) {
     `;
 
     try {
-      const response = await fetch(
+        const response = await fetch(
         'https://27420-auspost-integratiton.adobeioruntime.net/api/v1/web/shipping/fetch-shipping-prices',
         {
           method: 'POST',
@@ -68,9 +68,10 @@ export default function decorate(block) {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ query }),
-        }
+          body: JSON.stringify({ query }), // ✅ trailing comma
+        }, // ✅ optional but often required if ESLint enforces trailing commas
       );
+
 
       const result = await response.json();
 
