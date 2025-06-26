@@ -24,7 +24,8 @@
       "fragment",
       "product-teaser",
       "product-recommendations",
-      "product-info"
+      "product-info",
+      "aem-appBuilder"
     ]
   },
   {
@@ -40,7 +41,8 @@
       "fragment",
       "product-teaser",
       "product-recommendations",
-      "product-info"
+      "product-info",
+      "aem-appBuilder"
     ]
   },
   {
@@ -58,7 +60,8 @@
       "product-teaser",
       "product-recommendations",
       "product-list-page",
-      "product-info"
+      "product-info",
+      "aem-appBuilder"
     ]
   },
   {
@@ -76,7 +79,8 @@
       "product-details",
       "product-teaser",
       "product-recommendations",
-      "product-info"
+      "product-info",
+      "aem-appBuilder"
     ]
   },
   {
@@ -107,7 +111,8 @@
       "commerce-cart",
       "product-teaser",
       "product-recommendations",
-      "product-info"
+      "product-info",
+      "aem-appBuilder"
     ]
   },
   {
@@ -130,7 +135,8 @@
       "commerce-order-returns",
       "product-teaser",
       "product-recommendations",
-      "product-info"
+      "product-info",
+      "aem-appBuilder"
     ]
   },
   {
