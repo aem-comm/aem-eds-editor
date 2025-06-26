@@ -48,7 +48,7 @@ export default function decorate(block) {
     `;
 
     try {
-      const response = await fetch('https://edge-sandbox-graph.adobe.io/api/0804747e-2944-4ef2-b5f7-e1b7a1d6bc32/graphql', {
+      const response = await fetch('https://27420-auspost-integratiton.adobeioruntime.net/api/v1/web/shipping/fetch-shipping-prices', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
