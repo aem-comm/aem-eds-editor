@@ -52,7 +52,7 @@ export default function decorate(block) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer f75115a1f5c64e61a50e050543da9545',
+          Authorization: 'Bearer 22FADE005721F8257F000101@AdobeOrg',
         },
         body: JSON.stringify({ query }),
       });
