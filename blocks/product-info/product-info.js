@@ -64,6 +64,7 @@ export default function decorate(block) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
+        'x-gw-ims-org-id': '22FADE005721F8257F000101@AdobeOrg',
       },
       body: JSON.stringify({ query }),
     };
