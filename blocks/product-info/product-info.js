@@ -68,13 +68,11 @@ export default function decorate(block) {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ query }), // ✅ trailing comma
+        body: JSON.stringify({query}), // ✅ trailing comma
         }, // ✅ optional but often required if ESLint enforces trailing commas
       );
 
-
       const result = await response.json();
-
       if (result?.data?.createCustomerV2?.customer) {
         alert('Customer created successfully!');
         form.reset();
